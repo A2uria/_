@@ -1,0 +1,15 @@
+name: aria2c
+on:
+  workflow_dispatch:
+    inputs:
+      uri:
+        required: true
+jobs:
+  aria2c:
+    runs-on: windows-latest
+    steps:
+      - run: |
+          aria2c '${{ github.event.inputs.uri }}'
+      - uses: actions/upload-artifact@v3
+        with:
+          path: .
