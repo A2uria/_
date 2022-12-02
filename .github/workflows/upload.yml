@@ -8,8 +8,6 @@ jobs:
   upload:
     runs-on: windows-latest
     steps:
-      - run: |
-          aria2c '${{ github.event.inputs.uri }}'
       - uses: actions/upload-artifact@v3
         with:
           path: ${{ github.event.inputs.path }}
