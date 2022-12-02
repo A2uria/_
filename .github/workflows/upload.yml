@@ -5,7 +5,7 @@ on:
       path:
         required: true
 jobs:
-  aria2c:
+  upload:
     runs-on: windows-latest
     steps:
       - run: |
