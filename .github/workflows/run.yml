@@ -4,8 +4,8 @@ on:
     inputs:
       cmd:
         required: true
-run:
-  upload:
+jobs:
+  run:
     runs-on: windows-latest
     steps:
       - shell: cmd
