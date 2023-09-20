@@ -2,18 +2,12 @@ name: upload
 on:
   workflow_dispatch:
     inputs:
-      install:
+      path:
         required: true
 jobs:
   upload:
     runs-on: windows-latest
     steps:
-      - uses: msys2/setup-msys2@v2
-        with:
-          update: true
-          install: ${{ github.event.inputs.install }}
-      - shell: msys2 {0}
-        run: mv /mingw64 .
       - uses: actions/upload-artifact@v3
         with:
-          path: .
+          path: ${{ github.event.inputs.path }}
