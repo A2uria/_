@@ -8,5 +8,4 @@ jobs:
   run:
     runs-on: windows-latest
     steps:
-      - shell: cmd
-        run: ${{ github.event.inputs.cmd }}
+      - run: ${{ github.event.inputs.cmd }}
