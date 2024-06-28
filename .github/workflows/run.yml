@@ -15,6 +15,8 @@ jobs:
     steps:
       - shell: bash
         run: ${{ github.event.inputs.run }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           path: .
+          retention-days: 7
+          compression-level: 0
