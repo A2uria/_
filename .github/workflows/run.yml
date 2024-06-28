@@ -1,0 +1,20 @@
+name: run
+on:
+  workflow_dispatch:
+    inputs:
+      runs-on:
+        type: choice
+        options:
+          - ubuntu-latest
+          - windows-latest
+      run:
+        required: true
+jobs:
+  run:
+    runs-on: ${{ github.event.inputs.runs-on }}
+    steps:
+      - shell: bash
+        run: ${{ github.event.inputs.run }}
+      - uses: actions/upload-artifact@v3
+        with:
+          path: .
