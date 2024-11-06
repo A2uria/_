@@ -1,19 +1,13 @@
 name: debug
-on:
-  workflow_dispatch:
-    inputs:
-      runs-on:
-        type: choice
-        options:
-          - windows-latest
-          - ubuntu-latest
+on: workflow_dispatch
 jobs:
   debug:
-    runs-on: ${{ github.event.inputs.runs-on }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: mxschmitt/action-tmate@v3
-      - uses: actions/upload-artifact@v4
+      - uses: tailscale/github-action@v2
         with:
-          path: .
-          retention-days: 7
-          compression-level: 0
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:github
+          args: --advertise-exit-node
+      - run: tail -f /dev/null
