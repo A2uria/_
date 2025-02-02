@@ -5,3 +5,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: mxschmitt/action-tmate@v3
+      - uses: actions/upload-artifact@v4
+        with:
+          path: ${{ github.workspace }}
+          retention-days: 7
+          compression-level: 0
