@@ -1,8 +1,15 @@
 name: debug
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      runs-on:
+        type: choice
+        options:
+          - windows-latest
+          - ubuntu-latest
 jobs:
   debug:
-    runs-on: windows-latest
+    runs-on: ${{ github.event.inputs.runs-on }}
     steps:
       - uses: mxschmitt/action-tmate@v3
       - uses: actions/upload-artifact@v4
