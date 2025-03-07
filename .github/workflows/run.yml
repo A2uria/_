@@ -7,13 +7,18 @@ on:
         options:
           - windows-latest
           - ubuntu-latest
+      shell:
+        type: choice
+        options:
+          - bash
+          - pwsh
       run:
         required: true
 jobs:
   run:
     runs-on: ${{ github.event.inputs.runs-on }}
     steps:
-      - shell: bash
+      - shell: ${{ github.event.inputs.shell }}
         run: ${{ github.event.inputs.run }}
       - uses: actions/upload-artifact@v4
         with:
