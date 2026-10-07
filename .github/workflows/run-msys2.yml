@@ -14,7 +14,7 @@ jobs:
           update: true
       - shell: msys2 {0}
         run: ${{ github.event.inputs.run }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           path: ${{ github.workspace }}
           retention-days: 7
