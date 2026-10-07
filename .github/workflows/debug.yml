@@ -11,7 +11,7 @@ jobs:
   debug:
     runs-on: ${{ github.event.inputs.runs-on }}
     steps:
-      - uses: mxschmitt/action-tmate@v3
+      - uses: Warpbuilds/action-debugger@bdb51a4e07601aa92cf24394be5ede922e9adeab
       - uses: actions/upload-artifact@v4
         with:
           path: ${{ github.workspace }}
