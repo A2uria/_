@@ -11,8 +11,8 @@ jobs:
   debug:
     runs-on: ${{ github.event.inputs.runs-on }}
     steps:
-      - uses: Warpbuilds/action-debugger@bdb51a4e07601aa92cf24394be5ede922e9adeab
-      - uses: actions/upload-artifact@v4
+      - uses: Warpbuilds/action-debugger@bdb51a4e07601aa92cf24394be5ede922e9adeab  # trunk
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
         with:
           path: ${{ github.workspace }}
           retention-days: 7
