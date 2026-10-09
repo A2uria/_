@@ -5,7 +5,8 @@ on:
       runs-on:
         type: choice
         options:
-          - windows-latest
+          - windows-2022
+          - windows-2025-vs2026
           - ubuntu-latest
       run:
         required: true
